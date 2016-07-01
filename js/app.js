@@ -1,16 +1,16 @@
-function Questions(strong,salty,bitter,sweetness,fruity) {
+function Questions(strong,salty,bitter,sweet,fruity) {
   this.strong = strong;
   this.salty = salty;
   this.bitter = bitter;
-  this.sweetness = sweetness;
+  this.sweet = sweet;
   this.fruity = fruity;
 }
 
-function Ingredients(strong,salty,bitter,sweetness,fruity) {
+function Ingredients(strong,salty,bitter,sweet,fruity) {
   this.strong = strong;
   this.salty = salty;
   this.bitter = bitter;
-  this.sweetness = sweetness;
+  this.sweet = sweet;
   this.fruity = fruity;
 }
 
@@ -46,3 +46,11 @@ function getAllKeyValues(object) {
 
 
 var myPantry = new Pantry(getAllKeyValues(ingredients))
+
+$(function() {
+  $("#strong-question").text(bartenderQuestions.strong)
+  $("#salty-question").text(bartenderQuestions.salty)
+  $("#bitter-question").text(bartenderQuestions.bitter)
+  $("#sweet-question").text(bartenderQuestions.sweet)
+  $("#fruity-question").text(bartenderQuestions.fruity)
+})
