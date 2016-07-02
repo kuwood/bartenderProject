@@ -1,4 +1,4 @@
-function Questions(strong,salty,bitter,sweet,fruity) {
+function Questions(strong, salty, bitter, sweet, fruity) {
   this.strong = strong;
   this.salty = salty;
   this.bitter = bitter;
@@ -6,7 +6,7 @@ function Questions(strong,salty,bitter,sweet,fruity) {
   this.fruity = fruity;
 }
 
-function Ingredients(strong,salty,bitter,sweet,fruity) {
+function Ingredients(strong, salty, bitter, sweet, fruity) {
   this.strong = strong;
   this.salty = salty;
   this.bitter = bitter;
@@ -21,7 +21,7 @@ function Pantry(ingredients) {
 function getAllKeyValues(object) {
   var keys = Object.keys(object);
   var values = [];
-  for(var property in object) {
+  for (var property in object) {
     object[property].forEach(function(v) {
       values.push(v);
     })
@@ -38,24 +38,19 @@ function generateQuestions() {
 }
 
 var bartenderQuestions = new Questions("Do ye like yer drinks strong?",
-                                       "Do ye like it with a salty tang?",
-                                       "Are ye a lubber who likes it bitter?",
-                                       "Would ye like a bit of sweetness with yer poison?",
-                                       "Are ye one for a fruity finish?"
-                                      );
-
-var ingredients = new Ingredients(["Glug of rum", "slug of whisky", "splash of gin"],
-                                  ["Olive on a stick", "salt-dusted rim", "rasher of bacon"],
-                                  ["Shake of bitters", "splash of tonic", "twist of lemon peel"],
-                                  ["Sugar cube", "spoonful of honey", "splash of cola"],
-                                  ["Slice of orange", "dash of cassis", "cherry on top"]
+  "Do ye like it with a salty tang?",
+  "Are ye a lubber who likes it bitter?",
+  "Would ye like a bit of sweetness with yer poison?",
+  "Are ye one for a fruity finish?"
 );
+
+var ingredients = new Ingredients(["Glug of rum", "slug of whisky", "splash of gin"], ["Olive on a stick", "salt-dusted rim", "rasher of bacon"], ["Shake of bitters", "splash of tonic", "twist of lemon peel"], ["Sugar cube", "spoonful of honey", "splash of cola"], ["Slice of orange", "dash of cassis", "cherry on top"]);
 
 function prefsCheck(object) {
   a = Object.keys(object);
-  for(var taste in a) {
+  for (var taste in a) {
     var keyName = a[taste];
-    if($('#'+keyName+'-yes').is(":checked")) {
+    if ($("#" + keyName + "-yes").is(":checked")) {
       userPrefs[keyName] = true;
     } else {
       userPrefs[keyname] = false;
@@ -70,10 +65,10 @@ function getRandomInt() {
 function Bartender() {
   this.getDrink = function(userPrefs) {
     var spicyMeatball;
-    for(var prefs in userPrefs) {
-      if(userPrefs[prefs] === true) {
+    for (var prefs in userPrefs) {
+      if (userPrefs[prefs] === true) {
         var randomNumber = getRandomInt();
-        if(spicyMeatball)
+        if (spicyMeatball)
           spicyMeatball += " and " + ingredients[prefs][randomNumber];
         else
           spicyMeatball = ingredients[prefs][randomNumber];
